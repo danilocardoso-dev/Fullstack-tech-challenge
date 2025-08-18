@@ -1,0 +1,62 @@
+📅 Cronograma de Entrega Rápida
+Dia 1 – Setup
+
+ Criar repositório (GitHub)
+
+ Configurar monorepo (ou duas pastas separadas api/ e web/)
+
+ Subir PostgreSQL no Docker
+
+ Configurar NestJS + Prisma + conexão com DB
+
+ Criar entidades User e Client no Prisma
+
+Dia 2 – Backend: Autenticação e RBAC
+
+ Implementar login com email + senha
+
+ Gerar JWT + refresh token
+
+ Guard para RBAC (ADMIN, USER, GUEST)
+
+ Incluir tenantId no JWT e validar em todas as queries
+
+ Documentar Auth no Swagger
+
+Dia 3 – Backend: CRUD
+
+ CRUD de Usuários (restrito por role)
+
+ CRUD de Clientes (restrito por role)
+
+ Middleware do Prisma para filtrar sempre por tenantId
+
+ Documentar tudo no Swagger
+
+Dia 4 – Frontend
+
+ Configurar NextJS + Tailwind + React Query
+
+ Criar tela de login + fluxo de autenticação
+
+ Criar layout (sidebar, header)
+
+ CRUD de clientes no frontend
+
+ Listagem de usuários (somente ADMIN/USER)
+
+Dia 5 – Finalização
+
+ Criar Dashboard com KPIs (total clientes / ativos)
+
+ Dockerizar frontend + backend juntos (docker-compose)
+
+ Deploy:
+
+Backend no Render
+
+Frontend no Vercel
+
+ Ajustar documentação (README com instruções)
+
+ Testar todo o fluxo end-to-end
