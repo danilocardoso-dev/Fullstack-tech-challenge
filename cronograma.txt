@@ -1,55 +1,55 @@
 📅 Cronograma de Entrega Rápida
 Dia 1 – Setup
 
- Criar repositório (GitHub)
+ Criar repositório (GitHub) ✔
 
- Configurar monorepo (ou duas pastas separadas api/ e web/)
+ Configurar monorepo (ou duas pastas separadas api/ e web/) ✔
 
- Subir PostgreSQL no Docker
+ Subir PostgreSQL no Docker ✔
 
- Configurar NestJS + Prisma + conexão com DB
+ Configurar NestJS + Prisma + conexão com DB ✔
 
- Criar entidades User e Client no Prisma
+ Criar entidades User e Client no Prisma ✔
 
 Dia 2 – Backend: Autenticação e RBAC
 
- Implementar login com email + senha
+ Implementar login com email + senha ✔
 
- Gerar JWT + refresh token
+ Gerar JWT + refresh token ✔
 
- Guard para RBAC (ADMIN, USER, GUEST)
+ Guard para RBAC (ADMIN, USER, GUEST) ✔
 
- Incluir tenantId no JWT e validar em todas as queries
+ Incluir tenantId no JWT e validar em todas as queries ✔
 
- Documentar Auth no Swagger
+ Documentar Auth no Swagger ✔
 
-Dia 3 – Backend: CRUD
+Dia 3 – Backend: CRUD 
 
- CRUD de Usuários (restrito por role)
+ CRUD de Usuários (restrito por role) ✔
 
- CRUD de Clientes (restrito por role)
+ CRUD de Clientes (restrito por role) ✔
 
- Middleware do Prisma para filtrar sempre por tenantId
+ Middleware do Prisma para filtrar sempre por tenantId ✔
 
- Documentar tudo no Swagger
+ Documentar tudo no Swagger ✔
 
 Dia 4 – Frontend
 
- Configurar NextJS + Tailwind + React Query
+ Configurar NextJS + Tailwind + React Query ✔
 
- Criar tela de login + fluxo de autenticação
+ Criar tela de login + fluxo de autenticação ✔
 
- Criar layout (sidebar, header)
+ Criar layout (sidebar, header) ✔
 
- CRUD de clientes no frontend
+ CRUD de clientes no frontend ✔
 
- Listagem de usuários (somente ADMIN/USER)
+ Listagem de usuários (somente ADMIN/USER) ✔
 
 Dia 5 – Finalização
 
- Criar Dashboard com KPIs (total clientes / ativos)
+ Criar Dashboard com KPIs (total clientes / ativos) ✔
 
- Dockerizar frontend + backend juntos (docker-compose)
+ Dockerizar frontend + backend juntos (docker-compose)  ✔
 
  Deploy:
 
