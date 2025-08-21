@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://backend:3000/api', // URL base do backend
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 let isRefreshing = false;
