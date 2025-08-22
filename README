@@ -1,0 +1,268 @@
+
+# Sistema de Gestão Multi-Tenant
+
+Sistema completo de gestão de clientes e usuários com autenticação JWT, RBAC, multi-tenant e frontend em Next.js. Backend desenvolvido em NestJS com Prisma, PostgreSQL, dockerizado e frontend hospedado no Vercel.  
+
+---
+
+## 📂 Estrutura do Projeto
+
+
+
+/project-root
+├── api/ # Backend NestJS
+├── web/ # Frontend Next.js
+├── docker-compose.yml
+└── README.md
+
+
+---
+
+## 🛠 Tecnologias
+
+**Backend**
+- NestJS
+- Prisma ORM
+- PostgreSQL
+- JWT + Refresh Token
+- RBAC (ADMIN, USER, GUEST)
+- Swagger (documentação da API)
+
+**Frontend**
+- Next.js
+- React Query
+- Tailwind CSS
+- Axios
+- Dashboard com KPIs
+
+**Infraestrutura**
+- Docker / Docker Compose
+- Backend no Render
+- Frontend no Vercel
+- Banco de dados PostgreSQL dockerizado
+
+---
+
+## 🚀 Rodando o projeto localmente
+
+### Pré-requisitos
+- Node.js >= 18
+- Docker e Docker Compose
+- Yarn ou npm
+- PostgreSQL (via Docker ou local)
+
+### 1️⃣ Backend
+
+1. Acesse a pasta `api/`:
+
+```bash
+cd api
+
+
+Instale as dependências:
+
+npm install
+# ou
+yarn
+
+
+Configure o .env (exemplo):
+
+DATABASE_URL=postgresql://postgres:senha@localhost:5432/dbname
+JWT_SECRET=secretKey
+JWT_REFRESH_SECRET=refreshSecret
+PORT=3000
+
+
+Execute migrations do Prisma:
+
+npx prisma migrate dev
+
+
+Inicie o servidor:
+
+npm run start:dev
+# ou
+yarn start:dev
+
+
+Swagger: http://localhost:3000/api
+
+2️⃣ Frontend
+
+Acesse a pasta web/:
+
+cd web
+
+
+Instale as dependências:
+
+npm install
+# ou
+yarn
+
+
+Configure o .env.local (exemplo):
+
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
+
+Inicie o frontend:
+
+npm run dev
+# ou
+yarn dev
+
+
+App: http://localhost:3001 (ou porta configurada)
+
+3️⃣ Dockerização
+
+Você pode rodar backend, frontend e PostgreSQL juntos usando Docker Compose:
+
+docker-compose up --build
+
+
+Isso sobe:
+
+Backend NestJS (api)
+
+Frontend Next.js (web)
+
+PostgreSQL (db)
+
+🔑 Funcionalidades
+
+Backend
+
+Autenticação com JWT + refresh token
+
+Controle de acesso baseado em roles (ADMIN, USER, GUEST)
+
+Multi-tenant via tenantId
+
+CRUD de Usuários (restrito por roles)
+
+CRUD de Clientes (filtrado por tenantId)
+
+Middleware Prisma para segurança e isolamento de dados
+
+Documentação via Swagger
+
+Frontend
+
+Tela de login e autenticação completa
+
+Dashboard com KPIs: total de clientes, clientes ativos
+
+CRUD de clientes integrado com backend
+
+Listagem de usuários (somente ADMIN/USER)
+
+Layout responsivo com sidebar e header
+
+🌐 Deploy
+
+Backend: Render
+
+Frontend: Vercel
+
+📌 Observações
+
+Tokens expirados devem usar o endpoint /auth/refresh com o refreshToken retornado no login.
+
+Todos os endpoints estão protegidos por JWT e RBAC, exceto os marcados com @Public().
+
+Multi-tenant garante que cada usuário só veja dados do próprio tenant.
+
+⚡ Comandos Úteis
+# Backend
+npm run start:dev       # Start dev
+npm run start:prod      # Start prod
+npx prisma migrate dev  # Aplicar migrations
+npx prisma studio       # Abrir Prisma Studio
+
+# Frontend
+npm run dev             # Start dev
+npm run build           # Build produção
+npm run start           # Start produção
+
+
+
+
+### Pré-requisitos
+- Node.js >= 18
+- Docker e Docker Compose
+- Yarn ou npm
+- PostgreSQL (via Docker ou local)
+
+---
+
+📌 Endpoints Principais
+Endpoint	Método	Descrição
+/auth/register	POST	Cadastrar novo usuário
+/auth/login	POST	Login com email e senha
+/auth/refresh	POST	Renovar access token com refresh token
+/auth/logout	POST	Logout do usuário
+/users	GET	Listar usuários (role ADMIN/USER)
+/users/:id	GET	Buscar usuário por id
+/users	POST	Criar usuário
+/users/:id	PATCH	Atualizar usuário
+/users/:id	DELETE	Remover usuário
+/clients	GET	Listar clientes
+/clients/:id	GET	Buscar cliente
+/clients	POST	Criar cliente
+/clients/:id	PATCH	Atualizar cliente
+/clients/:id	DELETE	Remover cliente
+📝 Exemplos de Requisições Postman
+1️⃣ Registrar usuário
+POST /auth/register
+Content-Type: application/json
+
+{
+  "name": "Danilo Vinícius",
+  "email": "danilo@example.com",
+  "password": "12345678",
+  "role": "ADMIN",
+  "tenantId": "2d444f4c-3ba5-4872-b147-d9050d27545a"
+}
+
+2️⃣ Login
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "danilo@example.com",
+  "password": "12345678"
+}
+
+
+Resposta:
+
+{
+  "accessToken": "<JWT>",
+  "refreshToken": "<JWT_REFRESH>"
+}
+
+3️⃣ Refresh token
+POST /auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "<JWT_REFRESH>"
+}
+
+
+Resposta:
+
+{
+  "accessToken": "<NOVO_JWT>"
+}
+
+4️⃣ Listar clientes
+GET /clients
+Authorization: Bearer <JWT>
+
+
+
+Feito com  por Danilo Vinícius

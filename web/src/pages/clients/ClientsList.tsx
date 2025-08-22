@@ -21,7 +21,7 @@ export const ClientList = () => {
   if (isLoading) return <div>Carregando clientes...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
+    <div className="max-w-6xl mx-auto mt-10">
       <h2 className="text-2xl font-bold mb-4">Lista de Clientes</h2>
       <button
         onClick={() => navigate("/dashboard/clients/new")}
@@ -35,6 +35,8 @@ export const ClientList = () => {
             <th className="border px-4 py-2">Nome</th>
             <th className="border px-4 py-2">Email</th>
             <th className="border px-4 py-2">Telefone</th>
+            <th className="border px-4 py-2">Ativo</th>
+            <th className="border px-4 py-2">Endereço</th>
             <th className="border px-4 py-2">Ações</th>
           </tr>
         </thead>
@@ -43,7 +45,13 @@ export const ClientList = () => {
             <tr key={c.id}>
               <td className="border px-4 py-2">{c.name}</td>
               <td className="border px-4 py-2">{c.email}</td>
-              <td className="border px-4 py-2">{c.phone}</td>
+              <td className="border px-4 py-2">{c.contact}</td>
+              <td className="border px-4 py-2">{c.isActive ? "Sim" : "Não"}</td>
+              <td className="border px-4 py-2">
+                {c.address
+                  ? `${c.address.street}, ${c.address.number} - ${c.address.neighborhood}, ${c.address.state}`
+                  : "-"}
+              </td>
               <td className="border px-4 py-2 space-x-2">
                 <button
                   onClick={() => navigate(`/dashboard/clients/${c.id}`)}

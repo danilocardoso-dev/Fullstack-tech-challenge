@@ -33,7 +33,7 @@ export interface Client {
   name: string;
   email: string;
   isActive?: boolean;
-  phone?: string; // substitui o antigo 'contact'
+  contact?: string;
   address?: {
     street: string;
     neighborhood: string;

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000", // sua API NestJS
+  baseURL: "https://fullstack-tech-challenge.onrender.com", // sua API NestJS
 });
 
 export function useUsers() {
