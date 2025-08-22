@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const loginFn = async (email: string, password: string) => {
-  const response = await axios.post("http://localhost:3000/auth/login", {
+  const response = await axios.post("https://fullstack-tech-challenge.onrender.com/auth/login", {
     email,
     password,
   });

@@ -15,6 +15,12 @@ async function bootstrap() {
 
   // Guard global
   app.useGlobalGuards(new RolesGuard(reflector, jwtService));
+    app.enableCors({
+    origin: ['https://fullstack-tech-challenge.vercel.app'], // libera só seu front
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+
 
   // Configuração do Swagger
   const config = new DocumentBuilder()

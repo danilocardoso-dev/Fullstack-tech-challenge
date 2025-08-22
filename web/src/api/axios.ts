@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://fullstack-tech-challenge.onrender.com",
 });
-
 let isRefreshing = false;
 let failedQueue: any[] = [];
 
