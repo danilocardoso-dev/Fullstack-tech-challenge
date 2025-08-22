@@ -200,6 +200,7 @@ npm run start           # Start produção
 
 📌 Endpoints Principais
 Endpoint	Método	Descrição
+/api GET Ver todo a documentação do Swagger
 /auth/register	POST	Cadastrar novo usuário
 /auth/login	POST	Login com email e senha
 /auth/refresh	POST	Renovar access token com refresh token
