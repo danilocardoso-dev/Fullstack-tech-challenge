@@ -28,10 +28,23 @@ api.interceptors.request.use((config) => {
 
 export interface Client {
   id?: string;
+  tenantId?: string;
+  publicId?: string;
   name: string;
   email: string;
-  phone: string;
+  isActive?: boolean;
+  phone?: string; // substitui o antigo 'contact'
+  address?: {
+    street: string;
+    neighborhood: string;
+    number: string;
+    state: string;
+  };
+  imageUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
+
 
 // Listar todos os clientes
 export const getClients = async (): Promise<Client[]> => {
